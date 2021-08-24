@@ -14,33 +14,123 @@ request.onreadystatechange = function () {
 }
 
 function process(str) {
-    let jsonObj = JSON.parse(str);
-    addDates(jsonObj.current.dt);
-    addPictures(jsonObj);
-    addTemperature(jsonObj)
+    let json = JSON.parse(str);
+
+    addDates(json.current.dt);
+
+    let actualTemps = new Array();
+    let feelTemps = new Array();
+    let pictures = new Array();
+    let descriptions = new Array();
+    let pressures = new Array();
+    let humidityList = new Array();
+    let winds = new Array();
+
+    let actualTemp = Math.ceil(json.current.temp);
+    let feelTemp =  Math.ceil(json.current.feels_like);
+
+    if (actualTemp > 0) {
+        actualTemps.push("+" + actualTemp);
+    } else if (actualTemp < 0) {
+        actualTemps.push("-" + actualTemp);
+    } else {
+        actualTemps.push(actualTemp);
+    }
+
+    if (feelTemp > 0) {
+        feelTemps.push("+" + feelTemp);
+    } else if (actualTemps < 0) {
+        feelTemps.push("-" + feelTemp);
+    } else {
+        feelTemps.push(feelTemp);
+    }
+
+    pictures.push(json.current.weather[0].icon + ".png");
+    descriptions.push(json.current.weather[0].id);
+    pressures.push(Math.ceil(json.current.pressure / 1.333));
+    humidityList.push(json.current.humidity);
+    winds.push(json.current.wind_speed);
+
+    let dailyData = json.daily;
+    for (let item of dailyData) {
+        let actualTemper = Math.ceil(item.temp.day);
+        let feelTemper = Math.ceil(item.feels_like.day);
+
+        if (actualTemper > 0) actualTemps.push("+" + actualTemper);
+        if (actualTemper < 0) actualTemps.push("-" + actualTemper);
+        if (actualTemper === 0) actualTemps.push(actualTemper);
+
+        if (feelTemper > 0) feelTemps.push("+" + feelTemper);
+        if (feelTemper < 0) feelTemps.push("-" + feelTemper);
+        if (feelTemper === 0) feelTemps.push(feelTemper);
+
+        pictures.push(item.weather[0].icon + ".png");
+        descriptions.push(item.weather[0].id);
+        pressures.push(item.pressure);
+        humidityList.push(item.humidity);
+        winds.push(item.wind_speed);
+    }
+
+    let cards = document.getElementsByClassName("field");
+    let index = 0;
+    for (let card of cards) {
+
+        let fieldActualTemp = card.getElementsByClassName("temp_actual").item(0);
+        let fieldFeelTemp = card.getElementsByClassName("temp_feel").item(0);
+        fieldActualTemp.textContent = actualTemps[index] + fieldActualTemp.textContent;
+        fieldFeelTemp.textContent = feelTemps[index] + fieldFeelTemp.textContent;
+
+        let fieldPicture = card.getElementsByClassName("icon-weather").item(0);
+        let link = "/resources/img/" + pictures[index];
+        fieldPicture.setAttribute("src", link);
+
+        let fieldDescription = card.getElementsByClassName("description").item(0);
+        fieldDescription.textContent = descriptions[index];
+
+        let fieldPressure = card.getElementsByClassName("pressure").item(0);
+        fieldPressure.textContent = "Давление: " + pressures[index] + " мм рт. ст.";
+
+        let fieldHumidity = card.getElementsByClassName("humidity").item(0);
+        fieldHumidity.textContent = "Влажность: " + humidityList[index] + "%";
+
+        let fieldWing = card.getElementsByClassName("wind_deg").item(0);
+        fieldWing.textContent = "Направление ветра: " + winds[index];
+
+        index++;
+    }
+
 }
 
 function addTemperature(json) {
     let temperatureArray = new Array();
+    let feelTemperaturesArray = new Array();
     let cards = document.getElementsByClassName("field");
     let todayTemperature = json.current.temp;
+    let todayFeelTemperature = json.current.feels_like;
     temperatureArray.push(Math.ceil(todayTemperature));
+    feelTemperaturesArray.push(Math.ceil(todayFeelTemperature));
 
     let dailyData = json.daily;
     for (let item of dailyData) {
-        temperatureArray.push(Math.ceil(item.temp));
+        temperatureArray.push(Math.ceil(item.temp.day));
+        feelTemperaturesArray.push(Math.ceil(item.feels_like.day));
     }
 
     let index = 0;
     for (let card of cards) {
         let cardTemperature = card.children.item(3).children.item(0);
+        let cardFeelTemperature = card.children.item(3).children.item(1);
         if (temperatureArray[index] > 0) {
             cardTemperature.textContent = "+" + temperatureArray[index] + cardTemperature.textContent;
+            cardFeelTemperature.textContent = "+" + feelTemperaturesArray[index] + cardFeelTemperature.textContent;
         } else if (temperatureArray[index] < 0) {
-            cardTemperature.textContent = "-" + temperatureArray[index]+ cardTemperature.textContent;
+            cardTemperature.textContent = "-" + temperatureArray[index] + cardTemperature.textContent;
+            cardFeelTemperature.textContent = "-" + feelTemperaturesArray[index] + cardFeelTemperature.textContent;
         } else {
-            cardTemperature.textContent = temperatureArray[index]+ cardTemperature.textContent;
+            cardTemperature.textContent = temperatureArray[index] + cardTemperature.textContent;
+            cardFeelTemperature.textContent = feelTemperaturesArray[index] + cardFeelTemperature.textContent;
         }
+        index++;
     }
 }
 
@@ -71,10 +161,7 @@ function addDates(timestamp) {
     let today = convert(timestamp);
     let cards = document.getElementsByClassName("field");
     for (let card of cards) {
-        let cardDate = card.children.item(1);
-        let cardDayOfWeek = card.children.item(0);
-        cardDayOfWeek.textContent = getWeekDayName(today);
-        cardDate.textContent = (('0' + today.getDate()).slice(-2)) + "." +
+        card.children[0].textContent = getWeekDayName(today) + " " + (('0' + today.getDate()).slice(-2)) + "." +
             ('0' + (today.getMonth() + 1)).slice(-2) + "." +
             today.getFullYear();
 
@@ -88,13 +175,13 @@ function convert(timestamp) {
 
 function getWeekDayName(today) {
     let currentDay = today.getDay();
-    if (currentDay === 0) return "SUN"
-    if (currentDay === 1) return "MON"
-    if (currentDay === 2) return "TUE"
-    if (currentDay === 3) return "WED"
-    if (currentDay === 4) return "THU"
-    if (currentDay === 5) return "FRI"
-    if (currentDay === 6) return "SAT"
+    if (currentDay === 1) return "Понедельник"
+    if (currentDay === 2) return "Вторник"
+    if (currentDay === 3) return "Среда"
+    if (currentDay === 4) return "Четверг"
+    if (currentDay === 5) return "Пятница"
+    if (currentDay === 6) return "Суббота"
+    if (currentDay === 0) return "Воскресенье"
 }
 
 function convertTimestamp(timestamp) {

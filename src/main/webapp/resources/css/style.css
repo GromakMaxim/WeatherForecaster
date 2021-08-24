@@ -1,34 +1,64 @@
 @charset "ISO-8859-1";
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .table{
     display: flex;
-    width: 100%;
-    border: 2px solid black;
+    width: 98%;
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right:auto;
 }
 
 .field{
     flex-direction: column;
     width: 14.28%;
     display: flex;
-    border: 2px solid green;
-}
-.picture{
-    border: 2px solid blue;
-    margin: 2vw auto;
 }
 
-.icon-weather{
-    margin-left: auto;
-    margin-right: auto;
+.upper{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
 }
 
-.temp_value{
+.pic{
+    width: 50%;
+}
+img{
+    width: 100%;
+}
+
+.temp_data{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.temp_actual{
+    height: 50%;
     font-family: OpenSans-Bold;
-    font-size: 18px;
-    font-weight: 900;
+    font-weight: 500;
+    font-size:3vw;
+    text-align: center;
 }
+.temp_feel{
+    height: 50%;
+    font-weight: 500;
+    font-size:1.8vw;
+    text-align: center;
+}
+
+.feelslike{
+    font-size:1vw;
+}
+
+.date, .temp_feel, .feelslike, .bottom{
+    font-family: OpenSans-Regular;
+}
+
+.bottom *{
+    padding-top: 10px;
+    font-size:1vw;
+}
+
+
+
