@@ -1,3 +1,5 @@
+import getDescriptionById from "./getDescriptionById.js"
+
 console.log("i am working, dirty bitches");
 
 let address = "http://localhost:29999";
@@ -27,7 +29,7 @@ function process(str) {
     let winds = new Array();
 
     let actualTemp = Math.ceil(json.current.temp);
-    let feelTemp =  Math.ceil(json.current.feels_like);
+    let feelTemp = Math.ceil(json.current.feels_like);
 
     if (actualTemp > 0) {
         actualTemps.push("+" + actualTemp);
@@ -46,7 +48,7 @@ function process(str) {
     }
 
     pictures.push(json.current.weather[0].icon + ".png");
-    descriptions.push(json.current.weather[0].id);
+    descriptions.push(getDescriptionById(json.current.weather[0].id, "eng"));
     pressures.push(Math.ceil(json.current.pressure / 1.333));
     humidityList.push(json.current.humidity);
     winds.push(json.current.wind_speed);
@@ -65,7 +67,7 @@ function process(str) {
         if (feelTemper === 0) feelTemps.push(feelTemper);
 
         pictures.push(item.weather[0].icon + ".png");
-        descriptions.push(item.weather[0].id);
+        descriptions.push(getDescriptionById(item.weather[0].id, "eng"));
         pressures.push(item.pressure);
         humidityList.push(item.humidity);
         winds.push(item.wind_speed);
@@ -93,13 +95,15 @@ function process(str) {
         let fieldHumidity = card.getElementsByClassName("humidity").item(0);
         fieldHumidity.textContent = "Влажность: " + humidityList[index] + "%";
 
-        let fieldWing = card.getElementsByClassName("wind_deg").item(0);
-        fieldWing.textContent = "Направление ветра: " + winds[index];
+        let fieldWing = card.getElementsByClassName("wind_speed").item(0);
+        fieldWing.textContent = "Ветер: " + winds[index] + " м/сек";
 
         index++;
     }
 
 }
+
+
 
 function addTemperature(json) {
     let temperatureArray = new Array();
