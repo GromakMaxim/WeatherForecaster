@@ -15,27 +15,52 @@ request.onreadystatechange = function () {
 
 function process(str) {
     let jsonObj = JSON.parse(str);
-    addPictures(jsonObj);
     addDates(jsonObj.current.dt);
+    addPictures(jsonObj);
+    addTemperature(jsonObj)
 }
 
-function addPictures(json){
+function addTemperature(json) {
+    let temperatureArray = new Array();
+    let cards = document.getElementsByClassName("field");
+    let todayTemperature = json.current.temp;
+    temperatureArray.push(Math.ceil(todayTemperature));
+
+    let dailyData = json.daily;
+    for (let item of dailyData) {
+        temperatureArray.push(Math.ceil(item.temp));
+    }
+
+    let index = 0;
+    for (let card of cards) {
+        let cardTemperature = card.children.item(3).children.item(0);
+        if (temperatureArray[index] > 0) {
+            cardTemperature.textContent = "+" + temperatureArray[index] + cardTemperature.textContent;
+        } else if (temperatureArray[index] < 0) {
+            cardTemperature.textContent = "-" + temperatureArray[index]+ cardTemperature.textContent;
+        } else {
+            cardTemperature.textContent = temperatureArray[index]+ cardTemperature.textContent;
+        }
+    }
+}
+
+function addPictures(json) {
     let iconsArray = new Array();
     let cards = document.getElementsByClassName("field");
     let todayPicture = json.current.weather[0].icon;
     iconsArray.push(todayPicture);
 
     let dailyData = json.daily;
-    for (let item of dailyData){
+    for (let item of dailyData) {
         let weatherData = item.weather;
-        for (let item of weatherData){
+        for (let item of weatherData) {
             iconsArray.push(item.icon);
         }
     }
     let index = 0;
     for (let card of cards) {
         let cardPicture = card.children.item(2).children.item(0);
-        let link = "/resources/img/"+iconsArray[index]+".png";
+        let link = "/resources/img/" + iconsArray[index] + ".png";
         cardPicture.setAttribute("src", link);
         index++;
     }

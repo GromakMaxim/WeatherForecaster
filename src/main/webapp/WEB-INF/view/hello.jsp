@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/fonts.css"/>">
     <script type="text/javascript" src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
@@ -16,9 +17,11 @@ Hello!!!
         <div class="day">Сегодня</div>
         <div class="date"></div>
         <div class="picture">
-            <img class="icon-weather" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="icon-weather" src="<c:url value=""/>" alt="weather">
         </div>
-        <div class="temp"></div>
+        <div class="temp">
+            <span class="temp_value">&deg</span>
+        </div>
         <div class="temp-feel"></div>
         <div class="description"></div>
     </div>
@@ -26,9 +29,11 @@ Hello!!!
         <div class="day"></div>
         <div class="date"></div>
         <div class="picture">
-            <img class="icon-weather" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="icon-weather" src="<c:url value=""/>" alt="weather">
         </div>
-        <div class="temp"></div>
+        <div class="temp">
+            <span class="temp_value">&deg</span>
+        </div>
         <div class="temp-feel"></div>
         <div class="description"></div>
     </div>
@@ -36,9 +41,11 @@ Hello!!!
         <div class="day"></div>
         <div class="date"></div>
         <div class="picture">
-            <img class="icon-weather" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="icon-weather" src="<c:url value=""/>" alt="weather">
         </div>
-        <div class="temp"></div>
+        <div class="temp">
+            <span class="temp_value">&deg</span>
+        </div>
         <div class="temp-feel"></div>
         <div class="description"></div>
     </div>
@@ -46,9 +53,11 @@ Hello!!!
         <div class="day"></div>
         <div class="date"></div>
         <div class="picture">
-            <img class="icon-weather" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="icon-weather" src="<c:url value=""/>" alt="weather">
         </div>
-        <div class="temp"></div>
+        <div class="temp">
+            <span class="temp_value">&deg</span>
+        </div>
         <div class="temp-feel"></div>
         <div class="description"></div>
     </div>
@@ -56,9 +65,11 @@ Hello!!!
         <div class="day"></div>
         <div class="date"></div>
         <div class="picture">
-            <img class="icon-weather" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="icon-weather" src="<c:url value=""/>" alt="weather">
         </div>
-        <div class="temp"></div>
+        <div class="temp">
+            <span class="temp_value">&deg</span>
+        </div>
         <div class="temp-feel"></div>
         <div class="description"></div>
     </div>
@@ -66,9 +77,11 @@ Hello!!!
         <div class="day"></div>
         <div class="date"></div>
         <div class="picture">
-            <img class="icon-weather" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="icon-weather" src="<c:url value=""/>" alt="weather">
         </div>
-        <div class="temp"></div>
+        <div class="temp">
+            <span class="temp_value">&deg</span>
+        </div>
         <div class="temp-feel"></div>
         <div class="description"></div>
     </div>
@@ -76,9 +89,11 @@ Hello!!!
         <div class="day"></div>
         <div class="date"></div>
         <div class="picture">
-            <img class="icon-weather" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="icon-weather" src="<c:url value=""/>" alt="weather">
         </div>
-        <div class="temp"></div>
+        <div class="temp">
+            <span class="temp_value">&deg</span>
+        </div>
         <div class="temp-feel"></div>
         <div class="description"></div>
     </div>
