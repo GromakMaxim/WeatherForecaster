@@ -12,7 +12,7 @@ public class WeatherService {
     private final String language = "en";
     private String latitude = "48.48271";
     private String longitude = "135.08379";
-    private String exclude = "minutely,hourly";
+    private String exclude = "minutely";
 
     public String getTodayWeather() {
         ResponseEntity<String> response = restTemplate.getForEntity("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api, String.class);

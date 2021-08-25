@@ -1,0 +1,116 @@
+.weather-details {
+    display: flex;
+    flex-direction: column;
+
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vw;
+
+    padding: 2vw;
+
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.detail-first-line,
+.detail-second-line,
+.detail-middle,
+.detail-middle-bottom,
+.detail-bottom-hours {
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-first-line, .detail-second-line {
+    margin-bottom: 10px;
+}
+
+.details-title,
+.now,
+.previous,
+.detail-description-msg,
+.detail-feel-like {
+    font-family: OpenSans-Regular;
+    font-size: 1.5vw;
+}
+
+.details-city, .currenttime, .previous-temp {
+    font-family: OpenSans-Bold;
+    font-size: 1.5vw;
+}
+
+.detail-temp-big {
+    display: flex;
+    font-family: OpenSans-Bold;
+    font-size: 4vw;
+    align-items: center;
+}
+
+.detail-feel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.detail-feel-subcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.detail-description-msg {
+    margin-bottom: 0.5vw;
+}
+
+.detail-feel-temp {
+    font-family: OpenSans-Bold;
+    font-size: 1.5vw;
+}
+
+.detail-middle, .detail-middle-bottom {
+    margin-bottom: 2vw;
+}
+
+.detail-wind,
+.detail-humidity,
+.detail-pressure,
+.detail-water-temp {
+    margin-right: 2vw;
+    font-family: OpenSans-Bold;
+    font-size: 1.5vw;
+}
+
+.detail-bottom-hours{
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-day{
+    display: flex;
+    flex-direction: column;
+    width: 12.5%;
+}
+
+.detail-day-time, .detail-day-temper{
+    font-family: OpenSans-Regular;
+    font-size: 1.5vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detail-middle{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.detail-pic-container{
+    display: flex;
+    width: 15%;
+    justify-self: center;
+}
+
+.detail-pic{
+    width: 50%
+}

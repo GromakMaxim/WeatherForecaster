@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/css/fonts.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/css/general.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/css/weather-details.css"/>">
     <script type="module" src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
@@ -47,7 +48,6 @@
             <div class="wind_speed"></div>
         </div>
     </div>
-
     <div class="field" id="day2">
         <div class="date"></div>
         <div class="upper">
@@ -67,7 +67,6 @@
             <div class="wind_speed"></div>
         </div>
     </div>
-
     <div class="field" id="day3">
         <div class="date"></div>
         <div class="upper">
@@ -87,7 +86,6 @@
             <div class="wind_speed"></div>
         </div>
     </div>
-
     <div class="field" id="day4">
         <div class="date"></div>
         <div class="upper">
@@ -107,7 +105,6 @@
             <div class="wind_speed"></div>
         </div>
     </div>
-
     <div class="field" id="day5">
         <div class="date"></div>
         <div class="upper">
@@ -127,7 +124,6 @@
             <div class="wind_speed"></div>
         </div>
     </div>
-
     <div class="field" id="day6">
         <div class="date"></div>
         <div class="upper">
@@ -147,7 +143,6 @@
             <div class="wind_speed"></div>
         </div>
     </div>
-
     <div class="field" id="day7">
         <div class="date"></div>
         <div class="upper">
@@ -167,7 +162,101 @@
             <div class="wind_speed"></div>
         </div>
     </div>
+</div>
 
+<div class="weather-details">
+    <div class="detail-first-line">
+        <div class="details-title">Погода в &nbsp;</div>
+        <div class="details-city">Хабаровск</div>
+    </div>
+
+    <div class="detail-second-line">
+        <div class="now">Сейчас &nbsp;</div>
+        <div class="currenttime">15:44 </div>&nbsp;
+        <div class="previous">Вчера в это время &nbsp;</div>
+        <div class="previous-temp">+25</div>
+    </div>
+
+    <div class="detail-middle">
+        <div class="detail-temp-big">+22 C*</div>
+        <div class="detail-pic-container">
+            <img class="detail-pic" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+        </div>
+        <div class="detail-feel-container">
+            <div class="detail-description-msg">Грустный день</div>
+            <div class="detail-feel-subcontainer">
+                <div class="detail-feel-like">Ощущается как &nbsp;</div>
+                <div class="detail-feel-temp">+21</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="detail-middle-bottom">
+        <div class="detail-wind">5,1 м/с, ЮВ</div>
+        <div class="detail-humidity">65%</div>
+        <div class="detail-pressure">756 мм рт. ст</div>
+        <div class="detail-water-temp">+27</div>
+    </div>
+
+    <div class="detail-bottom-hours">
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+        <div class="detail-day">
+            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-miniicon-container">
+                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            </div>
+            <div class="detail-day-temper">+25</div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

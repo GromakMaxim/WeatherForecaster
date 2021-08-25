@@ -92,7 +92,7 @@ function process(json) {
         fieldDescription.textContent = descriptions[index];
 
         let fieldPressure = card.getElementsByClassName("pressure").item(0);
-        fieldPressure.textContent = "Давление: " + pressures[index] + " мм рт. ст.";
+        fieldPressure.textContent = "Давление: " + pressures[index] + " мм р/c";
 
         let fieldHumidity = card.getElementsByClassName("humidity").item(0);
         fieldHumidity.textContent = "Влажность: " + humidityList[index] + "%";
