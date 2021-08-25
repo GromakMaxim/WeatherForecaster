@@ -1,8 +1,10 @@
 import getDescriptionById from "./weather-description.js"
 import sendRequest from "./sendRequest.js";
 import initCities from "./cities.js";
+import {initCardSelection} from "./event-listener.js";
 
 initCities();//initialize a list of cities to fill in suggestions when entering a city
+initCardSelection();
 
 let url = "http://localhost:29999";
 //getting default weather
@@ -30,6 +32,8 @@ okCityBtn.addEventListener('click', function (event) {
         });
     }
 });
+
+
 
 function getTemp(tempValue){
     let actualTemp = Math.round(tempValue);
