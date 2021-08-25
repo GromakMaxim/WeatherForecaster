@@ -1,4 +1,4 @@
-package com.gromak.weather.service;
+package com.gromak.weather.service.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;

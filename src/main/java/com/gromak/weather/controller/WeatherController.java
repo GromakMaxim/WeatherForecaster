@@ -1,6 +1,6 @@
 package com.gromak.weather.controller;
 
-import com.gromak.weather.service.WeatherService;
+import com.gromak.weather.service.api.WeatherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

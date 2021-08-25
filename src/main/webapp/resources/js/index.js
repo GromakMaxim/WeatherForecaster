@@ -1,9 +1,13 @@
-import getDescriptionById from "./getDescriptionById.js"
+import getDescriptionById from "./weather-description.js"
 import sendRequest from "./sendRequest.js";
+import initCities from "./cities.js";
+
+initCities();//initialize a list of cities to fill in suggestions when entering a city
 
 let url = "http://localhost:29999";
 //getting default weather
 sendRequest(url + "/week-weather", "GET", true, process);
+document.getElementsByClassName("table-city")[0].textContent = "Хабаровск";
 
 let okCityBtn = document.getElementsByClassName("submit-city")[0];
 okCityBtn.addEventListener('click', function (event) {
@@ -19,7 +23,8 @@ okCityBtn.addEventListener('click', function (event) {
             if (lat !== null && lon !== null) {
 
                 //getting new weather by city name
-                console.log("City: " + selectedCity + " Received new coordinates: " + lat + " " + lon)
+                console.log("City: " + selectedCity + " Received new coordinates: " + lat + " " + lon);
+                document.getElementsByClassName("table-city")[0].textContent = selectedCity;
                 sendRequest(url +"/week-weather-coordinates?lat=" + lat + "&lon=" + lon, "GET", true, process);
             }
         });

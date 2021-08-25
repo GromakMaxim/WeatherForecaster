@@ -1,6 +1,6 @@
 package com.gromak.weather.controller;
 
-import com.gromak.weather.service.AddressService;
+import com.gromak.weather.service.api.AddressService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,5 +21,4 @@ public class AddressController {
     public String getCoordinates(@RequestParam("city") String queryCity) {
         return addressService.getCoordinates(queryCity);
     }
-
 }

@@ -51,8 +51,15 @@ img{
     font-size:1vw;
 }
 
-.date, .temp_feel, .feelslike, .bottom{
+.date, .temp_feel, .feelslike, .bottom, .table-title{
     font-family: OpenSans-Regular;
+}
+
+.table-description{
+
+}
+.table-city{
+    font-family: OpenSans-Bold;
 }
 
 .date{
@@ -62,6 +69,18 @@ img{
 .bottom *{
     padding-top: 10px;
     font-size:1vw;
+}
+
+.first-line{
+    display: flex;
+    flex-direction: row;
+    font-size: 3vw;
+}
+
+.table-description{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2vw;
 }
 
 

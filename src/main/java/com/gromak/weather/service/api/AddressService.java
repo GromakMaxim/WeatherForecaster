@@ -1,4 +1,4 @@
-package com.gromak.weather.service;
+package com.gromak.weather.service.api;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +12,7 @@ public class AddressService {
     private final String secret = "c4b8a7ae3de46643df5b3fb2c98ad8bd5558a256";
 
     public String getCoordinates(String queryCity) {
+        System.out.println(queryCity);
         String requestBody = "[ \"" + queryCity + "\" ]";
 
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
@@ -24,7 +25,12 @@ public class AddressService {
         HttpEntity<String> entity = new HttpEntity<>(requestBody, headers);
 
         ResponseEntity<String> response = restTemplate.postForEntity(url, entity, String.class);
+
         System.out.println("Coordinates: " + response.getBody());
         return response.getBody();
+    }
+
+    public String handlingNullCoordinates(String city){
+        return "";
     }
 }
