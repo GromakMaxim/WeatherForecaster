@@ -164,7 +164,7 @@
     </div>
 </div>
 
-<div class="weather-details">
+<div class="weather-details hidden">
     <div class="detail-first-line">
         <div class="details-title">Погода в &nbsp;</div>
         <div class="details-city">Хабаровск</div>
