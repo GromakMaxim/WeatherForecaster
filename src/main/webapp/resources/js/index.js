@@ -1,7 +1,7 @@
 import getDescriptionById from "./weather-description.js"
 import sendRequest from "./sendRequest.js";
 import initCities from "./cities.js";
-import {initCardSelection} from "./event-listener.js";
+import {initCardSelection, fillDetailsCard} from "./event-listener.js";
 
 initCities();//initialize a list of cities to fill in suggestions when entering a city
 initCardSelection();
@@ -19,23 +19,21 @@ okCityBtn.addEventListener('click', function (event) {
     if (selectedCity !== "" && typeof selectedCity !== "undefined") {
 
         //getting coordinates by city name
-        sendRequest(url +"/address?city=" + selectedCity, "GET", true, function (json) {
+        sendRequest(url + "/address?city=" + selectedCity, "GET", true, function (json) {
             let lat = json[0].geo_lat;
             let lon = json[0].geo_lon;
-            if (lat !== null && lon !== null) {
 
+            if (lat !== null && lon !== null) {
                 //getting new weather by city name
                 console.log("City: " + selectedCity + " Received new coordinates: " + lat + " " + lon);
                 document.getElementsByClassName("table-city")[0].textContent = selectedCity;
-                sendRequest(url +"/week-weather-coordinates?lat=" + lat + "&lon=" + lon, "GET", true, process);
+                sendRequest(url + "/week-weather-coordinates?lat=" + lat + "&lon=" + lon, "GET", true, process);
             }
         });
     }
 });
 
-
-
-function getTemp(tempValue){
+function getTemp(tempValue) {
     let actualTemp = Math.round(tempValue);
     if (actualTemp > 0) return "+" + actualTemp;
     if (actualTemp < 0) return "-" + actualTemp;
@@ -44,6 +42,7 @@ function getTemp(tempValue){
 
 function process(json) {
     addDates(json.current.dt);
+    fillDetailsCard(json);
 
     let actualTemps = new Array();
     let feelTemps = new Array();
@@ -131,6 +130,6 @@ function getWeekDayName(today) {
     if (currentDay === 0) return "Воскресенье"
 }
 
-function ascii(a) {
+export function ascii(a) {
     return String.fromCharCode(a);
 }

@@ -167,26 +167,26 @@
 <div class="weather-details hidden">
     <div class="detail-first-line">
         <div class="details-title">Погода в &nbsp;</div>
-        <div class="details-city">Хабаровск</div>
+        <div class="details-city"></div>
     </div>
 
     <div class="detail-second-line">
-        <div class="now">Сейчас &nbsp;</div>
-        <div class="currenttime">15:44 </div>&nbsp;
-        <div class="previous">Вчера в это время &nbsp;</div>
+        <div class="now">Сейчас</div>
+        <div class="currenttime"></div>
+        <div class="previous">Вчера в это время</div>
         <div class="previous-temp">+25</div>
     </div>
 
     <div class="detail-middle">
-        <div class="detail-temp-big">+22 C*</div>
+        <div class="detail-temp-big"></div>
         <div class="detail-pic-container">
-            <img class="detail-pic" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+            <img class="detail-pic" src="<c:url value=""/>" alt="weather">
         </div>
         <div class="detail-feel-container">
-            <div class="detail-description-msg">Грустный день</div>
+            <div class="detail-description-msg"></div>
             <div class="detail-feel-subcontainer">
-                <div class="detail-feel-like">Ощущается как &nbsp;</div>
-                <div class="detail-feel-temp">+21</div>
+                <div class="detail-feel-like">Ощущается как</div>
+                <div class="detail-feel-temp"></div>
             </div>
 
         </div>

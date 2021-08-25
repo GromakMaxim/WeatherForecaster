@@ -81,40 +81,48 @@
     font-size: 1.5vw;
 }
 
-.detail-bottom-hours{
+.detail-bottom-hours {
     display: flex;
     flex-direction: row;
 }
 
-.detail-day{
+.detail-day {
     display: flex;
     flex-direction: column;
     width: 12.5%;
 }
 
-.detail-day-time, .detail-day-temper{
+.detail-day-time, .detail-day-temper {
     font-family: OpenSans-Regular;
     font-size: 1.5vw;
     margin-left: auto;
     margin-right: auto;
 }
 
-.detail-middle{
+.detail-middle {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
 
-.detail-pic-container{
+.detail-pic-container {
     display: flex;
     width: 15%;
     justify-self: center;
 }
 
-.detail-pic{
-    width: 50%
+.detail-pic {
+
 }
 
-.hidden{
+.hidden {
     display: none;
+}
+
+.now, .previous {
+    padding-right: 1vw;
+}
+
+.currenttime {
+    padding-right: 2vw;
 }
