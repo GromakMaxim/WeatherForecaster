@@ -1,57 +1,32 @@
 import getDescriptionById from "./getDescriptionById.js"
+import sendRequest from "./sendRequest.js";
 
-console.log("i am working, dirty bitches");
-
-let address = "http://localhost:29999";
-let endpoint = "/week-weather";
-let request = new XMLHttpRequest();
-
-request.open('GET', address + endpoint, true);
-request.send();
-
-request.onreadystatechange = function () {
-    if (request.readyState === 4) {
-        process(request.responseText);
-    }
-}
+let url = "http://localhost:29999";
+//getting default weather
+sendRequest(url + "/week-weather", "GET", true, process);
 
 let okCityBtn = document.getElementsByClassName("submit-city")[0];
 okCityBtn.addEventListener('click', function (event) {
     event.preventDefault();
 
-    let address = "http://localhost:29999";
-    let endpoint = "/address?city=";
     let selectedCity = document.getElementsByClassName("selected_city")[0].value;
     if (selectedCity !== "" && typeof selectedCity !== "undefined") {
-        let request = new XMLHttpRequest();
 
-        request.open('GET', address + endpoint + selectedCity, true);
-        request.send();
+        //getting coordinates by city name
+        sendRequest(url +"/address?city=" + selectedCity, "GET", true, function (json) {
+            let lat = json[0].geo_lat;
+            let lon = json[0].geo_lon;
+            if (lat !== null && lon !== null) {
 
-        request.onreadystatechange = function () {
-            if (request.readyState === 4) {
-                let json = JSON.parse(request.responseText);
-                let lat = json[0].geo_lat;
-                let lon = json[0].geo_lon;
-
-                request.open('GET', "http://localhost:29999/week-weather-coordinates?lat=" + lat + "&lon=" + lon, true);
-                request.send();
-
-                request.onreadystatechange = function () {
-                    if (request.readyState === 4) {
-                        let json = JSON.parse(request.responseText);
-                        console.log(json)
-                        process(request.responseText);
-                    }
-                }
+                //getting new weather by city name
+                console.log("City: " + selectedCity + " Received new coordinates: " + lat + " " + lon)
+                sendRequest(url +"/week-weather-coordinates?lat=" + lat + "&lon=" + lon, "GET", true, process);
             }
-        }
+        });
     }
 });
 
-function process(str) {
-    let json = JSON.parse(str);
-
+function process(json) {
     addDates(json.current.dt);
 
     let actualTemps = new Array();
@@ -134,7 +109,6 @@ function process(str) {
 
         index++;
     }
-
 }
 
 function addDates(timestamp) {
@@ -164,4 +138,6 @@ function getWeekDayName(today) {
     if (currentDay === 0) return "Воскресенье"
 }
 
-function ascii (a) { return String.fromCharCode(a); }
+function ascii(a) {
+    return String.fromCharCode(a);
+}
