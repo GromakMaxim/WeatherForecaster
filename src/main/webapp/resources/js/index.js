@@ -68,7 +68,7 @@ function process(str) {
 
         pictures.push(item.weather[0].icon + ".png");
         descriptions.push(getDescriptionById(item.weather[0].id, "eng"));
-        pressures.push(item.pressure / 1.333);
+        pressures.push(Math.ceil(item.pressure / 1.333));
         humidityList.push(item.humidity);
         winds.push(item.wind_speed);
     }
