@@ -1,4 +1,4 @@
-package com.gromak.weather;
+package com.gromak.weather.service;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
@@ -19,18 +19,17 @@ public class WeatherService {
         return response.getBody();
     }
 
-
     public String getWeekWeather() {
         String link = "https://api.openweathermap.org/data/2.5/onecall?" +
                 "&lat=" + latitude +
                 "&lon=" + longitude +
                 "&appid=" + api +
                 "&lang=" + language +
-                "&units="+measurementUnits +
+                "&units=" + measurementUnits +
                 "&exclude=" + exclude;
         ResponseEntity<String> response = restTemplate.getForEntity(link, String.class);
         System.out.println("Sending GET for: " + link);
-        System.out.println(response.getBody());
+        System.out.println("Weather: " + response.getBody());
         return response.getBody();
     }
 }
