@@ -31,6 +31,13 @@ okCityBtn.addEventListener('click', function (event) {
     }
 });
 
+function getTemp(tempValue){
+    let actualTemp = Math.round(tempValue);
+    if (actualTemp > 0) return "+" + actualTemp;
+    if (actualTemp < 0) return "-" + actualTemp;
+    if (actualTemp === 0) return actualTemp;
+}
+
 function process(json) {
     addDates(json.current.dt);
 
@@ -42,24 +49,8 @@ function process(json) {
     let humidityList = new Array();
     let winds = new Array();
 
-    let actualTemp = Math.ceil(json.current.temp);
-    let feelTemp = Math.ceil(json.current.feels_like);
-
-    if (actualTemp > 0) {
-        actualTemps.push("+" + actualTemp);
-    } else if (actualTemp < 0) {
-        actualTemps.push("-" + actualTemp);
-    } else {
-        actualTemps.push(actualTemp);
-    }
-
-    if (feelTemp > 0) {
-        feelTemps.push("+" + feelTemp);
-    } else if (actualTemps < 0) {
-        feelTemps.push("-" + feelTemp);
-    } else {
-        feelTemps.push(feelTemp);
-    }
+    actualTemps.push(getTemp(json.current.temp));
+    feelTemps.push(getTemp(json.current.feels_like));
 
     pictures.push(json.current.weather[0].icon + ".png");
     descriptions.push(getDescriptionById(json.current.weather[0].id, "eng"));
@@ -69,20 +60,13 @@ function process(json) {
 
     let dailyData = json.daily;
     for (let item of dailyData) {
-        let actualTemper = Math.ceil(item.temp.day);
-        let feelTemper = Math.ceil(item.feels_like.day);
 
-        if (actualTemper > 0) actualTemps.push("+" + actualTemper);
-        if (actualTemper < 0) actualTemps.push("-" + actualTemper);
-        if (actualTemper === 0) actualTemps.push(actualTemper);
-
-        if (feelTemper > 0) feelTemps.push("+" + feelTemper);
-        if (feelTemper < 0) feelTemps.push("-" + feelTemper);
-        if (feelTemper === 0) feelTemps.push(feelTemper);
+        actualTemps.push(getTemp(item.temp.day));
+        feelTemps.push(getTemp(item.feels_like.day));
 
         pictures.push(item.weather[0].icon + ".png");
         descriptions.push(getDescriptionById(item.weather[0].id, "eng"));
-        pressures.push(Math.ceil(item.pressure / 1.333));
+        pressures.push(Math.round(item.pressure / 1.333));
         humidityList.push(item.humidity);
         winds.push(item.wind_speed);
     }
