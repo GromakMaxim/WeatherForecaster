@@ -3,6 +3,7 @@ package com.gromak.weather.controller;
 import com.gromak.weather.service.WeatherService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -30,4 +31,9 @@ public class WeatherController {
         return service.getWeekWeather();
     }
 
+    @RequestMapping("/week-weather-coordinates")
+    @ResponseBody
+    public String getNextWeekWeather(@RequestParam("lat") String lat, @RequestParam("lon") String lon) {
+        return service.getWeekWeather(lat, lon);
+    }
 }

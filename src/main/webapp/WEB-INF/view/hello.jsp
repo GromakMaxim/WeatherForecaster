@@ -13,6 +13,12 @@
     <script type="module" src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>
+<div class="city_selection">
+    <form name="set_city">
+        <input class="selected_city" type="text" name="selected_city" placeholder="Введите город...">
+        <input class="submit-city" type="submit" value="Ok">
+    </form>
+</div>
 <div class="table">
     <div class="field" id="day1">
         <div class="date"></div>
@@ -43,7 +49,7 @@
             <div class="temp_data">
                 <div class="temp_actual">&deg</div>
                 <div class="feelslike">Ощущается:</div>
-                <div class="temp_feel">&deg</div>
+                <div class="temp_feel"></div>
             </div>
         </div>
         <div class="bottom">
@@ -63,7 +69,7 @@
             <div class="temp_data">
                 <div class="temp_actual">&deg</div>
                 <div class="feelslike">Ощущается:</div>
-                <div class="temp_feel">&deg</div>
+                <div class="temp_feel"></div>
             </div>
         </div>
         <div class="bottom">
@@ -83,7 +89,7 @@
             <div class="temp_data">
                 <div class="temp_actual">&deg</div>
                 <div class="feelslike">Ощущается:</div>
-                <div class="temp_feel">&deg</div>
+                <div class="temp_feel"></div>
             </div>
         </div>
         <div class="bottom">
@@ -103,7 +109,7 @@
             <div class="temp_data">
                 <div class="temp_actual">&deg</div>
                 <div class="feelslike">Ощущается:</div>
-                <div class="temp_feel">&deg</div>
+                <div class="temp_feel"></div>
             </div>
         </div>
         <div class="bottom">
@@ -123,7 +129,7 @@
             <div class="temp_data">
                 <div class="temp_actual">&deg</div>
                 <div class="feelslike">Ощущается:</div>
-                <div class="temp_feel">&deg</div>
+                <div class="temp_feel"></div>
             </div>
         </div>
         <div class="bottom">
@@ -143,7 +149,7 @@
             <div class="temp_data">
                 <div class="temp_actual">&deg</div>
                 <div class="feelslike">Ощущается:</div>
-                <div class="temp_feel">&deg</div>
+                <div class="temp_feel"></div>
             </div>
         </div>
         <div class="bottom">

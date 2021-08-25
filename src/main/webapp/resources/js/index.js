@@ -3,7 +3,7 @@ import getDescriptionById from "./getDescriptionById.js"
 console.log("i am working, dirty bitches");
 
 let address = "http://localhost:29999";
-let endpoint = "/week-weather"
+let endpoint = "/week-weather";
 let request = new XMLHttpRequest();
 
 request.open('GET', address + endpoint, true);
@@ -14,6 +14,40 @@ request.onreadystatechange = function () {
         process(request.responseText);
     }
 }
+
+let okCityBtn = document.getElementsByClassName("submit-city")[0];
+okCityBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+
+    let address = "http://localhost:29999";
+    let endpoint = "/address?city=";
+    let selectedCity = document.getElementsByClassName("selected_city")[0].value;
+    if (selectedCity !== "" && typeof selectedCity !== "undefined") {
+        let request = new XMLHttpRequest();
+
+        request.open('GET', address + endpoint + selectedCity, true);
+        request.send();
+
+        request.onreadystatechange = function () {
+            if (request.readyState === 4) {
+                let json = JSON.parse(request.responseText);
+                let lat = json[0].geo_lat;
+                let lon = json[0].geo_lon;
+
+                request.open('GET', "http://localhost:29999/week-weather-coordinates?lat=" + lat + "&lon=" + lon, true);
+                request.send();
+
+                request.onreadystatechange = function () {
+                    if (request.readyState === 4) {
+                        let json = JSON.parse(request.responseText);
+                        console.log(json)
+                        process(request.responseText);
+                    }
+                }
+            }
+        }
+    }
+});
 
 function process(str) {
     let json = JSON.parse(str);
@@ -79,8 +113,8 @@ function process(str) {
 
         let fieldActualTemp = card.getElementsByClassName("temp_actual").item(0);
         let fieldFeelTemp = card.getElementsByClassName("temp_feel").item(0);
-        fieldActualTemp.textContent = actualTemps[index] + fieldActualTemp.textContent;
-        fieldFeelTemp.textContent = feelTemps[index] + fieldFeelTemp.textContent;
+        fieldActualTemp.textContent = actualTemps[index] + ascii(176);
+        fieldFeelTemp.textContent = feelTemps[index] + ascii(176);
 
         let fieldPicture = card.getElementsByClassName("icon-weather").item(0);
         let link = "/resources/img/" + pictures[index];
@@ -102,63 +136,6 @@ function process(str) {
     }
 
 }
-
-
-function addTemperature(json) {
-    let temperatureArray = new Array();
-    let feelTemperaturesArray = new Array();
-    let cards = document.getElementsByClassName("field");
-    let todayTemperature = json.current.temp;
-    let todayFeelTemperature = json.current.feels_like;
-    temperatureArray.push(Math.ceil(todayTemperature));
-    feelTemperaturesArray.push(Math.ceil(todayFeelTemperature));
-
-    let dailyData = json.daily;
-    for (let item of dailyData) {
-        temperatureArray.push(Math.ceil(item.temp.day));
-        feelTemperaturesArray.push(Math.ceil(item.feels_like.day));
-    }
-
-    let index = 0;
-    for (let card of cards) {
-        let cardTemperature = card.children.item(3).children.item(0);
-        let cardFeelTemperature = card.children.item(3).children.item(1);
-        if (temperatureArray[index] > 0) {
-            cardTemperature.textContent = "+" + temperatureArray[index] + cardTemperature.textContent;
-            cardFeelTemperature.textContent = "+" + feelTemperaturesArray[index] + cardFeelTemperature.textContent;
-        } else if (temperatureArray[index] < 0) {
-            cardTemperature.textContent = "-" + temperatureArray[index] + cardTemperature.textContent;
-            cardFeelTemperature.textContent = "-" + feelTemperaturesArray[index] + cardFeelTemperature.textContent;
-        } else {
-            cardTemperature.textContent = temperatureArray[index] + cardTemperature.textContent;
-            cardFeelTemperature.textContent = feelTemperaturesArray[index] + cardFeelTemperature.textContent;
-        }
-        index++;
-    }
-}
-
-function addPictures(json) {
-    let iconsArray = new Array();
-    let cards = document.getElementsByClassName("field");
-    let todayPicture = json.current.weather[0].icon;
-    iconsArray.push(todayPicture);
-
-    let dailyData = json.daily;
-    for (let item of dailyData) {
-        let weatherData = item.weather;
-        for (let item of weatherData) {
-            iconsArray.push(item.icon);
-        }
-    }
-    let index = 0;
-    for (let card of cards) {
-        let cardPicture = card.children.item(2).children.item(0);
-        let link = "/resources/img/" + iconsArray[index] + ".png";
-        cardPicture.setAttribute("src", link);
-        index++;
-    }
-}
-
 
 function addDates(timestamp) {
     let today = convert(timestamp);
@@ -187,13 +164,4 @@ function getWeekDayName(today) {
     if (currentDay === 0) return "Воскресенье"
 }
 
-function convertTimestamp(timestamp) {
-    let d = new Date(timestamp * 1000); // Convert the passed timestamp to milliseconds
-    let yyyy = d.getFullYear();
-    let month = ('0' + (d.getMonth() + 1)).slice(-2);  // Months are zero based. Add leading 0.
-    let date = ('0' + d.getDate()).slice(-2);
-    let hour = ('0' + d.getHours()).slice(-2);
-    let minutes = ('0' + d.getMinutes()).slice(-2);     // Add leading 0.
-    let resultTime = date + "." + month + "." + yyyy;
-    return resultTime;
-}
+function ascii (a) { return String.fromCharCode(a); }
