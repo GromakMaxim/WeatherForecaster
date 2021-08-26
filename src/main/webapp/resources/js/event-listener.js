@@ -70,6 +70,14 @@ export function fillDetailsCard(json) {
             let detailFeelTemp = document.getElementsByClassName("detail-feel-temp")[0];
             detailFeelTemp.textContent = Math.round(json.current.feels_like) + ascii(176);
 
+            let detailWind = document.getElementsByClassName("detail-wind")[0];
+            detailWind.textContent = json.current.wind_speed + " м/сек";
+
+            let detailHumidity = document.getElementsByClassName("detail-humidity")[0];
+            detailHumidity.textContent = json.current.humidity + " %";
+
+            let detailPressure = document.getElementsByClassName("detail-pressure")[0];
+            detailPressure.textContent = Math.round(json.current.pressure / 1.333) + " мм р/c";
 
             index++;
         });

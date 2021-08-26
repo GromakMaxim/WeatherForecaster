@@ -193,7 +193,7 @@
     </div>
 
     <div class="detail-middle-bottom">
-        <div class="detail-wind">5,1 м/с, ЮВ</div>
+        <div class="detail-wind"></div>
         <div class="detail-humidity">65%</div>
         <div class="detail-pressure">756 мм рт. ст</div>
         <div class="detail-water-temp">+27</div>
