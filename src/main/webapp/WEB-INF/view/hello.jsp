@@ -7,7 +7,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 http-equiv=" Content-Type
+    " content="text/html; charset=UTF-8">
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
     <link rel="stylesheet" href="<c:url value="/resources/css/fonts.css"/>">

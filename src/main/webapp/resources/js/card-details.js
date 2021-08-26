@@ -1,6 +1,7 @@
 import {ascii, convert, getTemp} from "./index.js";
 import getDescriptionById from "./weather-description.js";
 
+let position = 0;
 
 export function fillDetailsCard(json) {
     let detailsCity = document.getElementsByClassName("details-city")[0];
@@ -70,15 +71,46 @@ function fillHourlyData(json) {
 
     let detailCards = document.getElementsByClassName("detail-day");
     let index = 0;
-    for (let detailCard of detailCards) {
-        let time = detailCard.getElementsByClassName("detail-day-time")[0];
-        let pic = detailCard.getElementsByClassName("detail-miniicon")[0];
-        let temp = detailCard.getElementsByClassName("detail-day-temper")[0];
+    for (let i = 0; i <= detailCards.length; i++) {
+        roll(i);
+    }
 
-        time.textContent = timeList[index];
-        pic.setAttribute("src", picsList[index]);
-        temp.textContent = tempsList[index] + ascii(176);
+    let rightBtn = document.getElementsByClassName("arrow-pic-right")[0];
 
-        index++;
+    rightBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (position < timeList.length - detailCards.length) {
+            position++;
+            index = position;
+            console.log("pos:" + position + " " + "index: " + index);
+            roll(index);
+        }
+    });
+
+    let leftBtn = document.getElementsByClassName("arrow-pic-left")[0];
+
+    leftBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (position > 0) {
+            position--;
+            index = position;
+
+            console.log("pos:" + position + " " + "index: " + index);
+            roll(index);
+        }
+    });
+
+    function roll(index) {
+        for (let detailCard of detailCards) {
+            let time = detailCard.getElementsByClassName("detail-day-time")[0];
+            let pic = detailCard.getElementsByClassName("detail-miniicon")[0];
+            let temp = detailCard.getElementsByClassName("detail-day-temper")[0];
+
+            time.textContent = timeList[index];
+            pic.setAttribute("src", picsList[index]);
+            temp.textContent = tempsList[index] + ascii(176);
+
+            index++;
+        }
     }
 }
