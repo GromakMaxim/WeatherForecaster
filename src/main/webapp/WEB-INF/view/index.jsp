@@ -7,13 +7,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 http-equiv=" Content-Type
-    " content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/fonts.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/general.css"/>">
-    <link rel="stylesheet" href="<c:url value="/resources/css/weather-details.css"/>">
     <script type="module" src="<c:url value="/resources/js/index.js"/>"></script>
 </head>
 <body>

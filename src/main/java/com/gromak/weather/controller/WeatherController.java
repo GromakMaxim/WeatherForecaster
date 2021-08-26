@@ -16,7 +16,7 @@ public class WeatherController {
 
     @RequestMapping("/")
     public String init() {
-        return "hello.jsp";
+        return "index.jsp";
     }
 
     @RequestMapping("/today-weather")
