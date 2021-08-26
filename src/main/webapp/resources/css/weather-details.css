@@ -1,13 +1,137 @@
+@media screen and (min-width: 1200px) {
+    .detail-first-line {
+        font-size: 24px;
+    }
+
+    .weather-details {
+        padding: 1.2%;
+    }
+
+    .detail-middle, .detail-middle-bottom {
+        margin-bottom: 1.2%;
+    }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1199px) {
+    .weather-details {
+        padding: 1.2%;
+    }
+
+    .detail-middle-bottom {
+        margin-bottom: 1.2%;
+    }
+
+    .detail-first-line {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 901px){
+    .field:hover {
+        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 20px -15px 10px 5px rgba(0, 0, 0, .5);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .weather-details {
+        width: 98%;
+        padding: 1.2%;
+    }
+
+    .table {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .field {
+        position: relative;
+        border: 1px solid black;
+        border-radius: 20px;
+        width: calc(50% - 2.5px);
+        margin-bottom: 1vw;
+    }
+
+    .field:nth-child(odd) {
+        margin-right: 5px;
+    }
+
+    .field:last-child {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .pic{
+        width: 25%;
+    }
+
+    .date{
+        font-size: 20px;
+    }
+
+    .description,
+    .pressure,
+    .humidity,
+    .wind_speed{
+        font-size: 15px;
+    }
+
+    .upper{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    .temp_data{
+        display: flex;
+        flex-direction: row;
+        width: 25%;
+        align-items: center;
+    }
+
+    .temp_actual{
+        font-size: 45px;
+        height: auto;
+    }
+
+    .feelslike{
+        position: absolute;
+        right: 50px;
+        font-size: 15px;
+        align-self: flex-start;
+        padding-top: 23px;
+    }
+
+    .temp_feel{
+        position: absolute;
+        right: 50px;
+        font-size: 15px;
+        height: auto;
+    }
+
+    .bottom{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .description,
+    .humidity{
+        width: 50%;
+    }
+}
+
 .weather-details {
     display: flex;
     flex-direction: column;
 
-    width: 70%;
+    max-width: 900px;
+    min-width: 700px;
+
+    max-height: 400px;
     margin-right: auto;
     margin-left: 1vw;
     margin-top: 2vw;
-
-    padding: 2vw;
 
     border: 1px solid black;
     border-radius: 20px;
@@ -22,29 +146,24 @@
     flex-direction: row;
 }
 
-.detail-first-line, .detail-second-line {
-    margin-bottom: 10px;
-}
-
 .details-title,
 .now,
 .previous,
 .detail-description-msg,
 .detail-feel-like {
     font-family: OpenSans-Regular;
-    font-size: 1.5vw;
+    padding-right: 10px;
 }
 
 .details-city, .currenttime, .previous-temp {
     font-family: OpenSans-Bold;
-    font-size: 1.5vw;
 }
 
 .detail-temp-big {
     display: flex;
     font-family: OpenSans-Bold;
-    font-size: 4vw;
     align-items: center;
+    font-size: 50px;
 }
 
 .detail-feel-container {
@@ -59,17 +178,8 @@
     justify-content: center;
 }
 
-.detail-description-msg {
-    margin-bottom: 0.5vw;
-}
-
 .detail-feel-temp {
     font-family: OpenSans-Bold;
-    font-size: 1.5vw;
-}
-
-.detail-middle, .detail-middle-bottom {
-    margin-bottom: 2vw;
 }
 
 .detail-wind,
@@ -78,7 +188,6 @@
 .detail-water-temp {
     margin-right: 2vw;
     font-family: OpenSans-Bold;
-    font-size: 1.5vw;
 }
 
 .detail-bottom-hours {
@@ -95,7 +204,6 @@
 
 .detail-day-time, .detail-day-temper {
     font-family: OpenSans-Regular;
-    font-size: 1.5vw;
     margin-left: auto;
     margin-right: auto;
 }
@@ -112,10 +220,6 @@
     justify-self: center;
 }
 
-.detail-pic {
-
-}
-
 .hidden {
     display: none;
 }
@@ -128,15 +232,15 @@
     padding-right: 2vw;
 }
 
-.arrow-container{
-    width: 10vw;
+.arrow-container {
     align-self: center;
+    width: 100px;
 }
 
-.arrow-container-left{
+.arrow-container-left {
     margin-right: 2vw;
 }
 
-.arrow-container-right{
+.arrow-container-right {
     margin-left: 2vw;
 }
