@@ -1,5 +1,6 @@
-import {ascii} from "./index.js";
+import {ascii, getTemp, convert} from "./index.js";
 import getDescriptionById from "./weather-description.js";
+
 
 export function initCardSelection() {
     let cards = document.getElementsByClassName("field");
@@ -79,6 +80,7 @@ export function fillDetailsCard(json) {
             let detailPressure = document.getElementsByClassName("detail-pressure")[0];
             detailPressure.textContent = Math.round(json.current.pressure / 1.333) + " мм р/c";
 
+            fillHourlyData(json);
             index++;
         });
     }
@@ -92,4 +94,80 @@ function getDateBySelectedCity(json) {
     let hours = ('0' + utcDate.getHours()).slice(-2);
     let minutes = ('0' + utcDate.getMinutes()).slice(-2);
     return hours + ":" + minutes;
+}
+
+function fillHourlyData(json) {
+    let hoursDataList = json.hourly;
+    let cards = document.getElementsByClassName("field");
+
+    //определяем, какая карточка выбрана
+    for (let i = 0; i < 7; i++) {
+        if (cards[i].classList.contains("selected-card")) {
+            let start = 0;
+            let end = 0;
+            if (i === 0) {
+                start = 0;
+                end = start + 23;
+            }
+            if (i === 1) {
+                start = 23;
+                end = start + 24;
+            }
+            if (i === 2) {
+                start = 47;
+                end = start + 24;
+            }
+            if (i === 3) {
+                start = 71;
+                end = start + 24;
+            }
+            if (i === 4) {
+                start = 96;
+                end = start + 24;
+            }
+            if (i === 5) {
+                start = 120;
+                end = start + 24;
+            }
+            if (i === 6) {
+                start = 144;
+                end = start + 24;
+            }
+            if (i === 7) {
+                start = 168;
+                end = start + 24;
+            }
+
+            //в зависимости от выбранной карточки, забираем диапазон данных
+            let array = new Array();
+            for (start; start < end; start++) {
+                array.push(hoursDataList[start]);
+            }
+
+            console.log(array);
+
+            //перебираем нижние карточки
+            for (let i = 0; i <= 7; i++){
+                let arrayElement = array[i];
+
+                let date = convert(arrayElement.dt);
+                let hhmm = (('0' + date.getHours()).slice(-2)) + ":"
+                    + (('0' + date.getMinutes()).slice(-2));
+
+                let temp = (getTemp(arrayElement.temp));
+                let icon = arrayElement.weather[0].icon + ".png";
+
+                let detailCard = document.getElementsByClassName("detail-day")[i];
+                let detailTime = detailCard.getElementsByClassName("detail-day-time")[0];
+                let detailMiniIcon = detailCard.getElementsByClassName("detail-miniicon")[0];
+                let detailTemp = detailCard.getElementsByClassName("detail-day-temper")[0];
+
+                detailTime.textContent = hhmm;
+                detailMiniIcon.setAttribute("src", "/resources/img/" + icon);
+                detailTemp.textContent = temp+ ascii(176);
+            }
+
+        }
+
+    }
 }

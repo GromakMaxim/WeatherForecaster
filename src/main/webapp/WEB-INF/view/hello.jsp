@@ -201,60 +201,67 @@
 
     <div class="detail-bottom-hours">
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
+
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
+
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
+
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
+
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
+
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
+
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
+
         <div class="detail-day">
-            <div class="detail-day-time">19:00</div>
+            <div class="detail-day-time"></div>
             <div class="detail-day-miniicon-container">
-                <img class="detail-miniicon" src="<c:url value="/resources/img/01d.png"/>" alt="weather">
+                <img class="detail-miniicon" src="<c:url value=""/>" alt="weather">
             </div>
-            <div class="detail-day-temper">+25</div>
+            <div class="detail-day-temper"></div>
         </div>
     </div>
 </div>

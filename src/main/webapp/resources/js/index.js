@@ -33,7 +33,7 @@ okCityBtn.addEventListener('click', function (event) {
     }
 });
 
-function getTemp(tempValue) {
+export function getTemp(tempValue) {
     let actualTemp = Math.round(tempValue);
     if (actualTemp > 0) return "+" + actualTemp;
     if (actualTemp < 0) return "-" + actualTemp;
@@ -115,7 +115,7 @@ function addDates(timestamp) {
     }
 }
 
-function convert(timestamp) {
+export function convert(timestamp) {
     return new Date(timestamp * 1000);
 }
 
