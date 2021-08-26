@@ -3,8 +3,8 @@
     flex-direction: column;
 
     width: 70%;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: 1vw;
     margin-top: 2vw;
 
     padding: 2vw;
@@ -84,12 +84,13 @@
 .detail-bottom-hours {
     display: flex;
     flex-direction: row;
+    width: 95%;
+    align-self: center;
 }
 
 .detail-day {
     display: flex;
     flex-direction: column;
-    width: 12.5%;
 }
 
 .detail-day-time, .detail-day-temper {
@@ -127,3 +128,15 @@
     padding-right: 2vw;
 }
 
+.arrow-container{
+    width: 10vw;
+    align-self: center;
+}
+
+.arrow-container-left{
+    margin-right: 2vw;
+}
+
+.arrow-container-right{
+    margin-left: 2vw;
+}

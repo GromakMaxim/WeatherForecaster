@@ -1,7 +1,8 @@
 import getDescriptionById from "./weather-description.js"
 import sendRequest from "./sendRequest.js";
 import initCities from "./cities.js";
-import {initCardSelection, fillDetailsCard} from "./event-listener.js";
+import {initCardSelection} from "./event-listener.js";
+import {fillDetailsCard} from "./card-details.js";
 
 initCities();//initialize a list of cities to fill in suggestions when entering a city
 initCardSelection();
