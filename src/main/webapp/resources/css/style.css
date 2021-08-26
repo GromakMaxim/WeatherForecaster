@@ -5,7 +5,7 @@
     width: 98%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2vw;
+    margin-top: 1vw;
 }
 
 .field {
@@ -74,7 +74,10 @@ img {
 .first-line {
     display: flex;
     flex-direction: row;
-    font-size: 3vw;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 }
 
 .table-description {
@@ -89,3 +92,59 @@ img {
     box-shadow: 20px -15px 10px 5px rgba(0, 0, 0, .5);
 }
 
+
+
+input {
+    padding: 0;
+    border: none;
+    outline: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+:active,
+:hover,
+:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+input{
+    height:47px;
+}
+
+.submit-city{
+    width: 47px;
+    border-radius: 10px;
+}
+
+.submit-city {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 20px;
+    border-width: 0;
+    padding: 0;
+    border: 1px solid black;
+
+    font-family: OpenSans-Regular;
+}
+
+.selected_city{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-right: 25px;
+    padding-left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+    font-family: OpenSans-Regular;
+    margin: 0;
+
+    margin-right: 10px;
+}
+
+.form{
+    display: flex;
+}

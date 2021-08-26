@@ -20,9 +20,9 @@
 
 <div class="first-line">
     <div class="city_selection">
-        <form name="set_city">
+        <form name="set_city" class="form">
             <input list="citiesList" class="selected_city" type="text" name="selected_city"
-                   placeholder="Введите город...">
+                   placeholder="Введите город..." required>
             <datalist id="citiesList"></datalist>
             <input class="submit-city" type="submit" value="Ok">
         </form>

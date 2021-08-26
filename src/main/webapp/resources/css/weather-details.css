@@ -10,6 +10,10 @@
     .detail-middle, .detail-middle-bottom {
         margin-bottom: 1.2%;
     }
+
+    .first-line{
+        font-size: 30px;
+    }
 }
 
 @media screen and (min-width: 901px) and (max-width: 1199px) {
@@ -23,6 +27,9 @@
 
     .detail-first-line {
         font-size: 24px;
+    }
+    .first-line{
+        font-size: 30px;
     }
 }
 
@@ -118,6 +125,9 @@
     .description,
     .humidity{
         width: 50%;
+    }
+    .first-line{
+        font-size: 30px;
     }
 }
 
