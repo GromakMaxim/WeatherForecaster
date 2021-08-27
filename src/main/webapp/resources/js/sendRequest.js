@@ -4,7 +4,7 @@ export default function sendRequest(link, method, async, callback){
     if (typeof method !== "string"){
         if (method.toUpperCase() !== "GET" && method.toUpperCase() !== "POST") throw new Error("only GET and POST methods supported here!");
     }
-    if (typeof async !== "boolean") throw new Error("async attr must bu boolean type");
+    if (typeof async !== "boolean") throw new Error("async attr must be boolean type");
 
     let request;
     if (window.XMLHttpRequest) request = new XMLHttpRequest();
