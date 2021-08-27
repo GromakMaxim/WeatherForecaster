@@ -9,7 +9,7 @@ export function fillDetailsCard(json) {
     detailsCity.textContent = currentCity.textContent;
 
     let detailsTime = document.getElementsByClassName("currenttime")[0];
-    detailsTime.textContent = getDateBySelectedCity(json);
+    detailsTime.textContent = getTimeBySelectedCity(json.current.dt, json.timezone_offset);
 
     let detailsActualTemp = document.getElementsByClassName("detail-temp-big")[0];
     let actualTemp = Math.round(json.current.temp);
@@ -42,17 +42,8 @@ export function fillDetailsCard(json) {
     fillHourlyData(json);
 }
 
-function getDateBySelectedCity(json) {
-    let timeshift = json.timezone_offset * 1000; //api provides shift in seconds from UTC
-    let curr = new Date();
-    let utc = (curr.getTime() + curr.getTimezoneOffset() * 60 * 1000); //utc current time in msec
-    let utcDate = new Date(utc + timeshift);//result date in msec
-    let hours = ('0' + utcDate.getHours()).slice(-2);
-    let minutes = ('0' + utcDate.getMinutes()).slice(-2);
-    return hours + ":" + minutes;
-}
-
 function getTimeBySelectedCity(timestamp, timeshift) {
+    timeshift = timeshift *1000;
     let curr = new Date(timestamp * 1000);
     let utc = (curr.getTime() + curr.getTimezoneOffset() * 60 * 1000); //utc current time in msec
     let utcDate = new Date(utc + timeshift);//result date in msec
@@ -63,7 +54,7 @@ function getTimeBySelectedCity(timestamp, timeshift) {
 
 function fillHourlyData(json) {
     let hoursDataList = json.hourly;
-    let timeshift = json.timezone_offset * 1000; //api provides shift in seconds from UTC
+    let timeshift = json.timezone_offset; //api provides shift in seconds from UTC
     let timeList = new Array();
     let picsList = new Array();
     let tempsList = new Array();
