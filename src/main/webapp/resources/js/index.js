@@ -98,7 +98,7 @@ function process(json) {
         fieldHumidity.textContent = "Влажность: " + humidityList[index] + "%";
 
         let fieldWing = card.getElementsByClassName("wind_speed").item(0);
-        fieldWing.textContent = "Ветер: " + winds[index] + " м/сек";
+        fieldWing.textContent = "Ветер: " + Math.round(winds[index]) + " м/сек";
 
         index++;
     }
