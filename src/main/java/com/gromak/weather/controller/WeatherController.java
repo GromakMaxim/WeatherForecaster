@@ -19,12 +19,6 @@ public class WeatherController {
         return "index.jsp";
     }
 
-    @RequestMapping("/today-weather")
-    @ResponseBody
-    public String getTodayWeather() {
-        return service.getTodayWeather();
-    }
-
     @RequestMapping("/week-weather")
     @ResponseBody
     public String getNextWeekWeather() {

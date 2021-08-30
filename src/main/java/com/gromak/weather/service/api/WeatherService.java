@@ -14,12 +14,6 @@ public class WeatherService {
     private String longitude = "135.08379";
     private String exclude = "minutely";
 
-    public String getTodayWeather() {
-        ResponseEntity<String> response = restTemplate.getForEntity("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api, String.class);
-        System.out.println(response.getBody());
-        return response.getBody();
-    }
-
     public String getWeekWeather() {
         String requestLink = link +
                 "&lat=" + latitude +

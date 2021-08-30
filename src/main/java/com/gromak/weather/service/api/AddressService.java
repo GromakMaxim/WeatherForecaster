@@ -29,8 +29,4 @@ public class AddressService {
         System.out.println("Coordinates: " + response.getBody());
         return response.getBody();
     }
-
-    public String handlingNullCoordinates(String city){
-        return "";
-    }
 }
