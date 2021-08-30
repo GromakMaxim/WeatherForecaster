@@ -41,8 +41,6 @@
     <div class="detail-second-line">
         <div class="now">Сейчас</div>
         <div class="currenttime"></div>
-        <div class="previous">Вчера в это время</div>
-        <div class="previous-temp">+25</div>
     </div>
 
     <div class="detail-middle">
@@ -65,7 +63,6 @@
         <div class="detail-wind"></div>
         <div class="detail-humidity">65%</div>
         <div class="detail-pressure">756 мм рт. ст</div>
-        <div class="detail-water-temp">+27</div>
     </div>
 
     <div class="detail-bottom-hours">

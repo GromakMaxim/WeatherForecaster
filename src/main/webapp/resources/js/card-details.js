@@ -25,7 +25,7 @@ export function fillDetailsCard(json) {
     detailsPicture.setAttribute("src", picLink);
 
     let detailDescription = document.getElementsByClassName("detail-description-msg")[0];
-    detailDescription.textContent = getDescriptionById(json.current.weather[0].id, "eng");
+    detailDescription.textContent = getDescriptionById(json.current.weather[0].id, "ru");
 
     let detailFeelTemp = document.getElementsByClassName("detail-feel-temp")[0];
     detailFeelTemp.textContent = Math.round(json.current.feels_like) + ascii(176);

@@ -57,7 +57,7 @@ function process(json) {
     feelTemps.push(getTemp(json.current.feels_like));
 
     pictures.push(json.current.weather[0].icon + ".png");
-    descriptions.push(getDescriptionById(json.current.weather[0].id, "eng"));
+    descriptions.push(getDescriptionById(json.current.weather[0].id, "ru"));
     pressures.push(Math.ceil(json.current.pressure / 1.333));
     humidityList.push(json.current.humidity);
     winds.push(json.current.wind_speed);
@@ -69,7 +69,7 @@ function process(json) {
         feelTemps.push(getTemp(item.feels_like.day));
 
         pictures.push(item.weather[0].icon + ".png");
-        descriptions.push(getDescriptionById(item.weather[0].id, "eng"));
+        descriptions.push(getDescriptionById(item.weather[0].id, "ru"));
         pressures.push(Math.round(item.pressure / 1.333));
         humidityList.push(item.humidity);
         winds.push(item.wind_speed);
